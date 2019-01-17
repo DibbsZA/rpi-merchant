@@ -1,3 +1,31 @@
-<p>
-  nav works!
-</p>
+<div color="primary" class="navbar flex flex-direction-row align-items-center">
+  <div class="flex flex-direction-row titles">
+    <h1 routerLink="/welcome" class="title add-margin">Angular Material POS</h1>
+    <h2 class="subtitle add-margin">Demo point-of-sale built using Angular 4, Material, and Firebase.</h2>
+  </div>
+
+
+  <button mat-icon-button [matMenuTriggerFor]="menu" class="menu">
+    <mat-icon>more_vert</mat-icon>
+  </button>
+</div>
+
+<!-- Mobile Menu -->
+<mat-menu #menu="matMenu">
+  <button mat-menu-item routerLink="/home">
+    <mat-icon>shopping_cart</mat-icon>
+    <span>Point of Sale</span>
+  </button>
+  <button mat-menu-item routerLink="/admin/items">
+    <mat-icon>perm_identity</mat-icon>
+    <span>Admin</span>
+  </button>
+  <button mat-menu-item routerLink="/reports">
+    <mat-icon>multiline_chart</mat-icon>
+    <span>Reports</span>
+  </button>
+  <button mat-menu-item routerLink="/" (click)="logout()">
+    <mat-icon>exit_to_app</mat-icon>
+    <span>Logout</span>
+  </button>
+</mat-menu>

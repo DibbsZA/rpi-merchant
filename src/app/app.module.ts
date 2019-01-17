@@ -21,6 +21,7 @@ import { HomeModule } from './home/home.module';
 import { AdminModule } from './admin/admin.module';
 import { MatIconModule, MatButtonModule, MatCardModule, MatMenuModule, MatInputModule, MatFormFieldModule } from '@angular/material';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NotifyService } from './core/notify.service';
 
 export const firebaseConfig = environment.firebaseConfig;
 
@@ -53,7 +54,9 @@ export const firebaseConfig = environment.firebaseConfig;
         HomeModule,
         AdminModule
     ],
-    providers: [],
+    providers: [
+        NotifyService
+    ],
     bootstrap: [
         AppComponent
     ]
