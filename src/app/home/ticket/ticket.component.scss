@@ -22,20 +22,19 @@
   width: 100%;
 }
 
-
 .item {
   font-family: $body-font;
 }
 
 .del {
   color: grey;
+  text-justify: distribute;
 }
 
 .del:hover {
   color: black;
   cursor: pointer;
 }
-
 
 .summary {
   margin-top: auto;
@@ -55,9 +54,11 @@ tr:nth-child(even) {
   background-color: #dddddd;
 }
 
-
-
 .checkout {
   margin-right: 0.75rem;
   background-color: rgb(214, 102, 102);
+}
+
+mat-grid-tile {
+  overflow: visible;
 }

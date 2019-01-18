@@ -3,7 +3,9 @@
 .container {
   // margin: 2rem;
 }
-
+.mat-expansion-panel-header-title {
+  min-width: 450px;
+}
 .title {
   margin-bottom: 1rem;
 }
@@ -38,8 +40,8 @@ mat-form-field {
   padding: 1em 2em;
   color: #fff;
   background: rgb(97, 97, 97);
-  border-radius: .4em;
-  transition: background .3s;
+  border-radius: 0.4em;
+  transition: background 0.3s;
   text-align: center;
   height: 1.25rem;
   max-width: 15%;

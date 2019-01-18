@@ -42,7 +42,7 @@ export class AuthService {
 
     signup(email: string, password: string) {
         this.afAuth.auth.createUserWithEmailAndPassword(email, password).then(userData => {
-            const newUser: User = { email: email, cashier: true, admin: false };
+            const newUser: User = { email: email, cashier: true, admin: false, uid: userData.user.uid };
             this.afs.collection('users').doc(userData.user.uid).set(newUser);
         });
 
