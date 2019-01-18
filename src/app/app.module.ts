@@ -22,6 +22,8 @@ import { AdminModule } from './admin/admin.module';
 import { MatIconModule, MatButtonModule, MatCardModule, MatMenuModule, MatInputModule, MatFormFieldModule } from '@angular/material';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NotifyService } from './core/notify.service';
+import { PosService } from './core/pos.service';
+import { RpiService } from './core/rpi.service';
 
 export const firebaseConfig = environment.firebaseConfig;
 
@@ -55,7 +57,10 @@ export const firebaseConfig = environment.firebaseConfig;
         AdminModule
     ],
     providers: [
-        NotifyService
+        NotifyService,
+        PosService,
+        RpiService,
+
     ],
     bootstrap: [
         AppComponent

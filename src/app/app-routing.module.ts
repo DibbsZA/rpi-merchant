@@ -29,6 +29,7 @@ const routes: Routes = [
         ]
     },
     { path: 'reports', component: ReportsComponent, canActivate: [AuthGuard] },
+    { path: 'transactions', component: TransactionsComponent, canActivate: [AuthGuard] },
     { path: '**', component: PageNotFoundComponent }
 ];
 

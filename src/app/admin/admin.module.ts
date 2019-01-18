@@ -12,7 +12,7 @@ import { AdminComponent } from './admin/admin.component';
 import { ItemsComponent } from './items/items.component';
 import { UsersComponent } from './users/users.component';
 
-import { ParseUserRolePipe } from './parse-user-role.pipe';
+import { ParseUserRolePipe } from './users/parse-user-role.pipe';
 import { DatabaseService } from '../core/database.service';
 import { AuthService } from '../core/auth.service';
 
