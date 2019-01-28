@@ -1,0 +1,8 @@
+<h1 mat-dialog-title>Scan to Pay with Z@P</h1>
+<div mat-dialog-content>
+  <qrcode [qrdata]="myQrCode" [size]="myQrSize" [level]="'M'"></qrcode>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cancel</button>
+  <button mat-button [mat-dialog-close]="rpiPaid" cdkFocusInitial>Ok</button>
+</div>

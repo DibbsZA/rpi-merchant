@@ -1,7 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { Item } from '../../core/item';
 import { PosService } from '../../core/pos.service';
 import { DatabaseService } from '../../core/database.service';
+import { Transaction, QrcodeSpec } from 'src/app/core/interfaces';
+import { ShowQrComponent } from '../pos/show-qr/show-qr.component';
+import { NotifyService } from 'src/app/core/notify.service';
 
 
 @Component({
@@ -13,10 +17,16 @@ export class TicketComponent implements OnInit {
 
     ticket: Item[] = [];
 
+
     cartTotal = 0;
     cartNumItems = 0;
 
-    constructor(private ticketSync: PosService, private db: DatabaseService) { }
+    constructor(
+        private ticketSync: PosService,
+        private db: DatabaseService,
+        public dialog: MatDialog,
+        public notify: NotifyService
+    ) { }
 
     // Sync with ticketSync service on init
     ngOnInit() {
@@ -99,9 +109,61 @@ export class TicketComponent implements OnInit {
 
     checkout() {
         if (this.ticket.length > 0) {
+            // TODO: This should offer choice for payment by FingerID or RPI
             this.db.pushOrder(this.ticket, this.cartTotal, this.cartNumItems);
             this.clearCart();
         }
     }
 
+    checkoutRPI() {
+
+        if (this.ticket.length > 0) {
+
+            // FIXME: TODO: I should get Order ref from DB but not actually write the entry until the cashier says OK on the QR scan!!!
+            // If user pressed Cancel order should be editable still without record in database!!!
+
+            this.db.pushOrder(this.ticket, this.cartTotal, this.cartNumItems)
+                .then(orderDoc => {
+
+                    let txDate = new Date().toISOString();
+                    let formattedDate = '';
+                    formattedDate = txDate.replace('T', ' ').replace('Z', '000');
+
+                    const qrData: QrcodeSpec = {
+                        payeeId: 'CANTEEN',
+                        payeePsp: 'BSVA_INT',
+                        payeeAccount: '1',   // This should be set to ref of the Wallet Account
+                        payerId: '',
+                        payerPsp: '',
+                        userRef: orderDoc.id,
+                        amount: this.cartTotal.toFixed(2),
+                        originatingDate: formattedDate,
+                        extraData: { description: this.cartNumItems + ' items in your cart.' }
+                    }
+
+                    const dialogRef = this.dialog.open(ShowQrComponent, {
+                        width: '300px',
+                        data: qrData
+                    });
+
+                    dialogRef.afterClosed()
+                        .subscribe(result => {
+                            console.log('The dialog was closed: ', result);
+                            if ('PAID' === result) {
+                                this.clearCart();
+                            }
+
+                        });
+
+                })
+                .catch(e => {
+                    console.log(e);
+                    this.notify.update('Error on DB write: ' + JSON.stringify(e), 'error')
+                });
+
+
+
+
+        }
+    }
 }

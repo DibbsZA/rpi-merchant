@@ -16,7 +16,7 @@
         </mat-form-field>
         <!-- Price -->
         <mat-form-field>
-          <input matInput placeholder="Price ($):" type="number" value="3.25" name="value" [(ngModel)]="newItemPrice" />
+          <input matInput placeholder="Price (R):" type="number" value="3.25" name="value" [(ngModel)]="newItemPrice" />
         </mat-form-field>
         <!-- Product type dropdown -->
         <mat-form-field>
@@ -26,14 +26,7 @@
         </mat-form-field>
 
         <label for="upload" class="file-upload__label">Upload Image</label>
-        <input
-          id="upload"
-          class="file-upload__input"
-          type="file"
-          name="file-upload"
-          accept="image/*"
-          (change)="detectFiles($event)"
-        />
+        <input id="upload" class="file-upload__input" type="file" name="file-upload" accept="image/*" (change)="detectFiles($event)" />
       </form>
     </mat-card-content>
     <!-- Save/Cancel -->
@@ -57,7 +50,7 @@
         <mat-form-field> <input #name matInput placeholder="Name:" value="{{ item.name }}" /> </mat-form-field>
         <!-- Price -->
         <mat-form-field>
-          <input #price matInput type="number" placeholder="Price ($):" value="{{ item.price }}" />
+          <input #price matInput type="number" placeholder="Price (R):" value="{{ item.price }}" />
         </mat-form-field>
         <!-- Product type dropdown -->
         <mat-form-field>

@@ -13,11 +13,15 @@
       <td>{{ item.price | currency: 'ZAR':'R' }}</td>
       <td>
         <mat-grid-list cols="3" rowHeight="3:1">
-          <mat-grid-tile> <mat-icon (click)="addItem(item)" class="del">control_point</mat-icon> </mat-grid-tile>
+          <mat-grid-tile>
+            <mat-icon (click)="addItem(item)" class="del">control_point</mat-icon>
+          </mat-grid-tile>
           <mat-grid-tile>
             <mat-icon (click)="subtractOne(item)" class="del">indeterminate_check_box</mat-icon>
           </mat-grid-tile>
-          <mat-grid-tile> <mat-icon (click)="removeItem(item)" class="del">cancel</mat-icon> </mat-grid-tile>
+          <mat-grid-tile>
+            <mat-icon (click)="removeItem(item)" class="del">cancel</mat-icon>
+          </mat-grid-tile>
         </mat-grid-list>
       </td>
     </tr>
@@ -27,7 +31,12 @@
     <h3 class="total">Total: {{ cartTotal | currency: 'ZAR':'R' }}</h3>
     <div class="flex flex-direction-row buttons">
       <button class="" mat-raised-button (click)="clearCart()">Clear</button>
-      <button class="checkout" mat-raised-button (click)="checkout()">Checkout</button>
+      <button class="checkout" mat-raised-button (click)="checkout()">
+        <mat-icon class="del">fingerprint</mat-icon>
+      </button>
+      <button class="checkout" mat-raised-button (click)="checkoutRPI()">
+        <mat-icon class="del">filter_center_focus</mat-icon>
+      </button>
     </div>
   </mat-card-actions>
 </mat-card>
