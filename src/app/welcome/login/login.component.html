@@ -1,7 +1,7 @@
 <div class="add-padding flex flex-direction-row align-items-center justify-center container">
   <mat-card>
-    <mat-card-title>Login to access Angular POS</mat-card-title>
-    <mat-card-subtitle>If you don't have credentials, login as guest</mat-card-subtitle>
+    <mat-card-title>Login to access RPI POS</mat-card-title>
+    <!-- <mat-card-subtitle>If you don't have credentials, login as guest</mat-card-subtitle> -->
     <mat-card-content>
       <form class="login-form">
         <mat-form-field>
@@ -18,8 +18,8 @@
         </mat-error>
         <p routerLink="/resetpassword" class="reset error">Forgot password?</p>
       </form>
-      <button mat-raised-button (click)="userLogin(email.value, password.value)">Login</button>
-      <button mat-raised-button class="guest" (click)="guestLogin()">Guest</button>
+      <button mat-raised-button color="primary" (click)="userLogin(email.value, password.value)">Login</button>
+      <!-- <button mat-raised-button class="guest" (click)="guestLogin()">Guest</button> -->
     </mat-card-content>
   </mat-card>
 </div>
