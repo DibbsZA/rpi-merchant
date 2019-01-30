@@ -232,7 +232,7 @@ export class DatabaseService {
 
     pushUpload(name: string, price: number, type: string, upload: Upload) {
         const storageRef = firebase.storage().ref();
-        const uploadTask = storageRef.child(`${'/'}/${upload.file.name}`).put(upload.file);
+        const uploadTask = storageRef.child(`${'/menuitems'}/${upload.file.name}`).put(upload.file);
 
         uploadTask.on(
             firebase.storage.TaskEvent.STATE_CHANGED,

@@ -1,61 +1,4 @@
 
-/**
- * Payemnt Initiation Message
- *
- * @export
- * @interface PaymentInitiation
- */
-export interface PaymentInitiation {
-    channel: string;
-    originatingDate: string;
-    clientKey: string;
-    consentKey: string;
-    payerAccountRef: string;
-    payerName: string;
-    amount: string;
-    userRef: string | null;
-    payeeId: string;
-    payeeMobileNo: string;
-    payeeEmail: string;
-}
-
-export interface PaymentInstructionResponse {
-    endToEndId: string;
-    originatingDate: string;
-    clientKey: string;
-    payeeAccountRef: string;
-    responseStatus: string;
-}
-
-export interface PaymentRequestInitiation {
-    channel: string;
-    originatingDate: string;
-    amount: string;
-    clientKey: string;
-    payerId: string;
-    payerMobileNo: string;
-    payerEmail: string;
-    payeeName: string;
-    payeeAccountRef: number;
-    userRef: string;
-}
-
-export interface PaymentRequestResponse {
-    endToEndId: string;
-    originatingDate: string;
-    clientKey: string;
-    consentKey: string;
-    payerAccountRef: number;
-    responseStatus: string;
-}
-
-export interface ApiResponse {
-    responseCode: string;
-    responseDesc: string;
-    responseStatus: string;
-    endToEndId: string;
-}
-
 export interface Transaction {
     endToEndId: string;
     clientKey?: string;
@@ -93,7 +36,7 @@ export interface QrcodeSpec {
     payerPsp?: string | null;
     userRef?: string | null;     // Ref for reconciliation eg. POS Order No. 
     amount?: string | null;
-    extraData?: any | null;   // This can be populated by Cart Order details etc.
+    extraData?: any | null;      // This can be populated by Cart Order details etc.
     originatingDate?: string;    // Merchant should set this initial field
 }
 

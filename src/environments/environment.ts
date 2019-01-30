@@ -6,12 +6,12 @@ export const environment = {
     production: false,
     // Initialize Firebase
     firebaseConfig: {
-        apiKey: "AIzaSyD2iajLNujWYitbs6IWWDPdzMmQTAHLLRM",
-        authDomain: "zapmobile-954c4.firebaseapp.com",
-        databaseURL: "https://zapmobile-954c4.firebaseio.com",
-        projectId: "zapmobile-954c4",
-        storageBucket: "zapmobile-954c4.appspot.com",
-        messagingSenderId: "393591030275"
+        apiKey: "AIzaSyA-j8THaJgFuToOGrYsOTUmOohpakACbdA",
+        authDomain: "bsa-rpi-canteen.firebaseapp.com",
+        databaseURL: "https://bsa-rpi-canteen.firebaseio.com",
+        projectId: "bsa-rpi-canteen",
+        storageBucket: "bsa-rpi-canteen.appspot.com",
+        messagingSenderId: "161814429537"
     }
 };
 

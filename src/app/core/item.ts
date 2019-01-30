@@ -13,6 +13,9 @@ export interface Order {
     items?: Item[];
     cartTotal: number;
     cartNumItems?: number;
+    paymentType?: string;   //  'CASH' or 'BIO' or 'RPI'
+    paidStatus?: boolean
+    paidBy?: string  // ZAPID or EmployeeId or CASH
 }
 
 export class Upload {
